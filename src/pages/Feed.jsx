@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import CreateForm from "../components/CreateForm";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 
@@ -20,6 +21,9 @@ const Feed = () => {
               width="100"
               height="100"
             />
+            <section className="createPostSection">
+              <CreateForm />
+            </section>
           </div>
         ) : (
           <h1>You are not logged in!</h1>
