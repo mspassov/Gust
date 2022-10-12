@@ -10,18 +10,18 @@ import { upload } from "@testing-library/user-event/dist/upload";
 
 const CreateForm = () => {
   const [user, loading, error] = useAuthState(auth);
+  const [fileURL, setfileURL] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const tempDate = new Date();
 
   const uploadFile = async (e) => {
     const file = e.target.files[0];
-    const imageRef = ref(storage, `images/${file.name + v4()}`);
+    const imageRef = ref(storage, `images/${file?.name + v4()}`);
 
     const res = await uploadBytes(imageRef, file);
     const fileUrl = await getDownloadURL(imageRef);
-
-    console.log(fileUrl);
+    setfileURL(fileUrl);
   };
 
   const submitPost = async (e) => {
@@ -34,7 +34,7 @@ const CreateForm = () => {
       location: location,
       description: description,
       createdAt: tempDate.toLocaleString(),
-      imageURL: "/img/testImage",
+      imageURL: fileURL,
     };
 
     await addDoc(postsRef, tempPost);
