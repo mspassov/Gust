@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import CreateForm from "../components/CreateForm";
+import Image from "../components/Image";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 const Feed = () => {
   const [user, loading, error] = useAuthState(auth);
+  const [imagesList, setImagesList] = useState(null);
+  const postsRef = collection(db, "posts");
+
+  const getImages = async () => {
+    const data = await getDocs(postsRef);
+    // setImagesList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    // console.log(imagesList);
+    const docs = data?.docs.map((doc) => doc.data());
+    setImagesList(docs);
+  };
+
+  useEffect(() => {
+    getImages();
+  }, []);
+
   return (
     <React.Fragment>
       <Navbar />
@@ -23,6 +40,12 @@ const Feed = () => {
             />
             <section className="createPostSection">
               <CreateForm />
+            </section>
+            <section className="photoFeed">
+              <h1>Images</h1>
+              {imagesList?.map((image) => {
+                return <Image image={image} />;
+              })}
             </section>
           </div>
         ) : (
