@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { auth } from "../config/firebase";
 import { storage, app } from "../config/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -14,6 +14,7 @@ const CreateForm = () => {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const tempDate = new Date();
+  const imageRef = useRef();
 
   const uploadFile = async (e) => {
     const file = e.target.files[0];
@@ -38,27 +39,31 @@ const CreateForm = () => {
     };
 
     await addDoc(postsRef, tempPost);
+    setfileURL("");
+    setLocation("");
+    setDescription("");
+    imageRef.current.value = "";
   };
 
   return (
     <React.Fragment>
       <h1>Create a New Post</h1>
-      <form>
-        <input type="file" onChange={uploadFile} />
+      <form onSubmit={submitPost}>
+        <input type="file" onChange={uploadFile} ref={imageRef} />
         <input
           type="text"
           placeholder="Location..."
-          onChange={(e) => {
-            setLocation(e.target.value);
-          }}
+          onChange={(e) => setLocation(e.target.value)}
+          value={location}
         />
         <br />
         <textarea
           placeholder="Description..."
           onChange={(e) => setDescription(e.target.value)}
+          value={description}
         ></textarea>
         <br />
-        <button onClick={submitPost}>Create</button>
+        <button>Create</button>
       </form>
     </React.Fragment>
   );
