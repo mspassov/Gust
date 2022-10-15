@@ -2,3 +2,9 @@ input{
     display: block;
     margin-top: 10px;
 }
+
+.location-image{
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}
