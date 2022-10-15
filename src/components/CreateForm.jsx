@@ -3,6 +3,7 @@ import { auth } from "../config/firebase";
 import { storage, app } from "../config/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { db } from "../config/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { v4 } from "uuid";
@@ -13,6 +14,7 @@ const CreateForm = () => {
   const [fileURL, setfileURL] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
   const tempDate = new Date();
   const imageRef = useRef();
 
@@ -31,7 +33,7 @@ const CreateForm = () => {
 
     const tempPost = {
       username: user?.displayName,
-      id: user?.uid,
+      userId: user?.uid,
       location: location,
       description: description,
       createdAt: tempDate.toLocaleString(),
@@ -43,6 +45,8 @@ const CreateForm = () => {
     setLocation("");
     setDescription("");
     imageRef.current.value = "";
+
+    window.location.reload(false);
   };
 
   return (

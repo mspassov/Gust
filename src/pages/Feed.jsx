@@ -13,9 +13,7 @@ const Feed = () => {
 
   const getImages = async () => {
     const data = await getDocs(postsRef);
-    // setImagesList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    // console.log(imagesList);
-    const docs = data?.docs.map((doc) => doc.data());
+    const docs = data?.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     setImagesList(docs);
   };
 
