@@ -41,8 +41,8 @@ const Feed = () => {
             </section>
             <section className="photoFeed">
               <h1>Images</h1>
-              {imagesList?.map((image) => {
-                return <Image image={image} />;
+              {imagesList?.map((image, key) => {
+                return <Image image={image} key={key} />;
               })}
             </section>
           </div>
