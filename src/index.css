@@ -160,15 +160,16 @@ nav h1 a{
 
 /* Create Form Styling */
 .create-form-container{
-    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
     max-width: 450px;
     margin: 40px auto;
     padding: 20px;
 }
 
 .create-form-container h1{
-    font-size: 20px;
-    color: #CA1551;
+    font-size: 24px;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -187,23 +188,67 @@ input[type="file"]{
     z-index: -1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-input{
-    display: block;
-    margin-top: 10px;
+.create-form-container .file-button{
+    display: flex;
+    gap: 10px;
+    width: 250px;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgba(3, 206, 164, 0.7);
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 15px;
 }
+
+.create-form-container .file-button:hover {
+    background-color: rgba(3, 206, 164, 1);
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+textarea{
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    height: 100px;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+}
+
+.create-form-container button {
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(202, 21, 81);
+    background: linear-gradient(90deg, rgba(202, 21, 81, 0.6) 0%, rgba(251, 77, 61, 0.6) 100%);
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.create-form-container button:hover {
+    background: linear-gradient(90deg, rgba(202, 21, 81, 0.9) 0%, rgba(251, 77, 61, 0.9) 100%);
+}
+
+/* Image Grid Styling */
+
+
+
+/* Image Card Styling */
+
+
+
+
+
 
 .location-image{
     object-fit: cover;

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { FaCamera } from "react-icons/fa";
 import { auth } from "../config/firebase";
 import { storage, app } from "../config/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -53,7 +54,7 @@ const CreateForm = () => {
 
   return (
     <div className="create-form-container">
-      <h1>Create a New Post</h1>
+      <h1>Where have you been?</h1>
       <form onSubmit={submitPost}>
         <input
           type="file"
@@ -62,17 +63,24 @@ const CreateForm = () => {
           id="file"
           accept="image/*"
         />
-        <label htmlFor="file">{chooseFile}</label>
+        <label htmlFor="file" className="file-button">
+          <FaCamera
+            style={{ height: "20px", width: "20px", color: "white" }}
+          />
+          <div>{chooseFile}</div>
+        </label>
         <input
           type="text"
           placeholder="Location..."
           onChange={(e) => setLocation(e.target.value)}
           value={location}
+          maxLength="30"
         />
         <textarea
           placeholder="Description..."
           onChange={(e) => setDescription(e.target.value)}
           value={description}
+          maxLength="200"
         ></textarea>
         <button>Create</button>
       </form>
