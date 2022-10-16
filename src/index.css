@@ -1,3 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Pacifico&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1080px;
+    margin: auto;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Navbar Styling */
+nav .nav-container{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+nav h1{
+    font-family: 'Pacifico', cursive;
+    color: #CA1551;
+    margin: 0 10px;
+}
+
+.link-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.link-container a{
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+}
+
+.link-container .login{
+    margin: 0 20px;
+}
+
+.link-container .login a{
+    color: black;
+}
+
+.link-container .login a:hover {
+    color: #FB4D3D;
+}
+
+.link-container .register{
+    border-radius: 15px;
+    background: rgb(251, 77, 61);
+    background: linear-gradient(90deg, rgba(251, 77, 61, 0.6) 0%, rgba(3, 206, 164, 0.7) 100%);
+    padding: 10px;
+    
+}
+
+.link-container .register:hover{
+    background: linear-gradient(90deg, rgba(251, 77, 61, 0.9) 0%, rgba(3, 206, 164, 0.9) 100%);
+}
+
+.link-container .register a{
+    color: white;
+}
+
+@media (max-width: 500px){
+    .nav-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .link-container{
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 input{
     display: block;
     margin-top: 10px;
