@@ -26,17 +26,21 @@ const Feed = () => {
       <Navbar />
       <div>
         {user ? (
-          <div className="container">
-            <section>
-              <CreateForm />
-            </section>
-            <section className="photoFeed">
-              <h1>Images</h1>
-              {imagesList?.map((image, key) => {
-                return <Image image={image} key={key} />;
-              })}
-            </section>
-          </div>
+          <>
+            <div className="container">
+              <section>
+                <CreateForm />
+              </section>
+              <div className="feed-container">
+                {imagesList?.map((image, key) => {
+                  return <Image image={image} key={key} />;
+                })}
+              </div>
+            </div>
+            <footer>
+              <p>MVS Technologies 2020</p>
+            </footer>
+          </>
         ) : (
           <h1>You are not logged in!</h1>
         )}

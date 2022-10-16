@@ -65,27 +65,31 @@ const Image = ({ image }) => {
         alt={image.location}
         className="location-image"
       />
-      <div>
-        <FaMapSigns />
-        <p>{image.location}</p>
+      <div className="info-container">
+        <div className="outer-container">
+          <div className="location-container">
+            <FaMapSigns style={{ color: "#03CEA4" }} />
+            <div className="location-data">{image.location}</div>
+          </div>
+        </div>
+        <p className="description">{image.description}</p>
+        <p className="date">{image.createdAt}</p>
+        <p className="username">@{image.username}</p>
+        <div className="like-container">
+          <div onClick={alreadyLiked ? unlikeImage : likeImage}>
+            {alreadyLiked ? (
+              <div>
+                <FaThumbsDown style={{ color: "red" }} />
+              </div>
+            ) : (
+              <div>
+                <FaThumbsUp style={{ color: "green" }} />
+              </div>
+            )}
+          </div>
+          <p className="like-counter">{likesData.length}</p>
+        </div>
       </div>
-      <p>{image.description}</p>
-      <p>{image.createdAt}</p>
-      <p>@{image.username}</p>
-      <button onClick={alreadyLiked ? unlikeImage : likeImage}>
-        {alreadyLiked ? (
-          <div>
-            <FaThumbsDown />
-            <p>Unlike</p>
-          </div>
-        ) : (
-          <div>
-            <FaThumbsUp />
-            <p>Like</p>
-          </div>
-        )}
-      </button>
-      <p>Likes: {likesData.length}</p>
     </div>
   );
 };
