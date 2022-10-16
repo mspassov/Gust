@@ -31,10 +31,11 @@ nav .nav-container{
     margin-left: 10px;
 }
 
-nav h1{
+nav h1 a{
     font-family: 'Pacifico', cursive;
     color: #CA1551;
     margin: 0 10px;
+    text-decoration: none;
 }
 
 .link-container{
@@ -89,6 +90,40 @@ nav h1{
     }
 }
 
+/* Sign-In with Google Styling */
+.sign-in-container{
+    max-width: 400px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sign-in-container img{
+    width: 50px;
+}
+
+.sign-in-container button{
+    width: 200px;
+    padding: 15px;
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: #345995;
+    cursor: pointer;
+}
+
+.sign-in-container button:hover{
+    background-color: #5881c3;
+}
 
 
 

@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import gLogo from "../images/G-logo.png";
 import { auth, provider } from "../config/firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -18,10 +20,13 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h3>Sign-in With Google</h3>
-      <button onClick={signIn}>Sign In</button>
-    </div>
+    <>
+      <Navbar />
+      <div className="sign-in-container">
+        <img src={gLogo} alt="" />
+        <button onClick={signIn}>Sign In With Google</button>
+      </div>
+    </>
   );
 };
 

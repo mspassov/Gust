@@ -17,7 +17,9 @@ const Navbar = () => {
       <div className="container nav-container">
         <div className="logo-container">
           <FaWind style={{ height: "30px", width: "30px", color: "#CA1551" }} />
-          <h1>Gust Social</h1>
+          <h1>
+            <Link to="/">Gust Social</Link>
+          </h1>
         </div>
         {user ? (
           <Link to="/">

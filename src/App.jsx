@@ -1,7 +1,7 @@
 import React from "react";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
-import Feed from './pages/Feed'
+import Feed from "./pages/Feed";
 import Register from "./pages/Register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
