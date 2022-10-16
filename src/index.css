@@ -158,7 +158,39 @@ nav h1 a{
     background-color: #5881c3;
 }
 
-/* Feed Styling */
+/* Create Form Styling */
+.create-form-container{
+    border: 1px solid black;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.create-form-container h1{
+    font-size: 20px;
+    color: #CA1551;
+    margin-bottom: 20px;
+}
+
+.create-form-container form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+input[type="file"]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+
+
+
 
 
 

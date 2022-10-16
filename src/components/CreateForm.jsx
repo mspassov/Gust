@@ -14,12 +14,14 @@ const CreateForm = () => {
   const [fileURL, setfileURL] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [chooseFile, setChooseFile] = useState("Upload a Photo");
   const navigate = useNavigate();
   const tempDate = new Date();
   const imageRef = useRef();
 
   const uploadFile = async (e) => {
     const file = e.target.files[0];
+    setChooseFile(file.name);
     const imageRef = ref(storage, `images/${file?.name + v4()}`);
 
     const res = await uploadBytes(imageRef, file);
@@ -50,26 +52,31 @@ const CreateForm = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className="create-form-container">
       <h1>Create a New Post</h1>
       <form onSubmit={submitPost}>
-        <input type="file" onChange={uploadFile} ref={imageRef} />
+        <input
+          type="file"
+          onChange={uploadFile}
+          ref={imageRef}
+          id="file"
+          accept="image/*"
+        />
+        <label htmlFor="file">{chooseFile}</label>
         <input
           type="text"
           placeholder="Location..."
           onChange={(e) => setLocation(e.target.value)}
           value={location}
         />
-        <br />
         <textarea
           placeholder="Description..."
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         ></textarea>
-        <br />
         <button>Create</button>
       </form>
-    </React.Fragment>
+    </div>
   );
 };
 

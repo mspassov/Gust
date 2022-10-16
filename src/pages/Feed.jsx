@@ -26,8 +26,8 @@ const Feed = () => {
       <Navbar />
       <div>
         {user ? (
-          <div>
-            <section className="createPostSection">
+          <div className="container">
+            <section>
               <CreateForm />
             </section>
             <section className="photoFeed">
