@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 .container{
@@ -36,6 +37,7 @@ nav h1 a{
     color: #CA1551;
     margin: 0 10px;
     text-decoration: none;
+    font-size: 28px;
 }
 
 .link-container{
@@ -90,6 +92,37 @@ nav h1 a{
     }
 }
 
+.user-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-container img{
+    height: 36px;
+    width: auto;
+    border-radius: 100%;
+}
+
+.user-container .logout button{
+    border: none;
+    text-align: center;
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    padding: 7px 15px;
+    background: linear-gradient(90deg, rgba(251, 77, 61, 0.5) 0%, rgba(3, 206, 164, 0.5) 100%);
+}
+
+.user-container .logout button:hover {
+    background: linear-gradient(90deg, rgba(251, 77, 61, 0.8) 0%, rgba(3, 206, 164, 0.8) 100%);
+}
+
 /* Sign-In with Google Styling */
 .sign-in-container{
     max-width: 400px;
@@ -124,6 +157,8 @@ nav h1 a{
 .sign-in-container button:hover{
     background-color: #5881c3;
 }
+
+/* Feed Styling */
 
 
 

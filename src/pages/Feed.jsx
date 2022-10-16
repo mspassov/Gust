@@ -27,15 +27,6 @@ const Feed = () => {
       <div>
         {user ? (
           <div>
-            <p>{user.displayName}</p>
-            <img
-              src={
-                user?.photoURL ||
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZTgJiqRWL5wWednBz8zyRUhSuEDTzefieg&usqp=CAU"
-              }
-              width="100"
-              height="100"
-            />
             <section className="createPostSection">
               <CreateForm />
             </section>
